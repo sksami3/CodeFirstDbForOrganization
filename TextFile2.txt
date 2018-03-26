@@ -1,0 +1,118 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Test.Con
+{
+    //class Data
+    //{
+    //    private object data;
+
+    //    public object _Data
+    //    {
+    //        set { this.data = value; }
+    //        get { return data; }
+    //    }
+    //}
+
+    class IntegerData
+    {
+        private int data;
+
+        public int Data
+        {
+            set { this.data = value; }
+            get { return data; }
+        }
+    }
+
+    class FloatData
+    {
+        private float data;
+
+        public float Data
+        {
+            set { this.data = value; }
+            get { return data; }
+        }
+    }
+
+    class StringData
+    {
+        private string data;
+
+        public string Data
+        {
+            set { this.data = value; }
+            get { return data; }
+        }
+    }
+
+    class Data<T>
+    {
+        private T data;
+
+        public T _Data
+        {
+            set { this.data = value; }
+            get { return data; }
+        }
+    }
+
+    
+
+    class Program
+    {
+        /*public static int add(int x, int y)
+        {
+            return x + y;
+        }
+
+        public static double add(double x, double y)
+        {
+            return x + y;
+        }*/
+
+        //public static double add<T>(T x, T y)
+        //{                            
+        //    return (Convert.ToInt32(x) + Convert.ToInt32(y));
+        //}
+
+        //public static T add<T>(T x, T y)
+        //{
+        //    return x + y;
+        //}
+
+        static void Main(string[] args)
+        {
+            //Console.WriteLine(add<int>(10, 10));
+            //Console.WriteLine(add<double>(10.5, 10.6));
+
+
+
+            Data<string> d = new Data<string>();
+            d._Data = "Hello";
+            Console.WriteLine(d._Data);
+
+            Data<int> d1 = new Data<int>();
+            d1._Data = 10;
+            Console.WriteLine(d1._Data);
+
+            //IntegerData i = new IntegerData();
+            //i.Data = 10;
+            //Console.WriteLine(i.Data);
+
+            //FloatData f = new FloatData();
+            //f.Data = 10.7f;
+            //Console.WriteLine(f.Data);
+
+            //StringData s = new StringData();
+            //s.Data = "Hello";
+            //Console.WriteLine(s.Data);
+
+
+        }
+    }
+}

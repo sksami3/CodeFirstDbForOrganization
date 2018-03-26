@@ -1,0 +1,59 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Test.Con
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            StudentsDbContext context = new StudentsDbContext();
+
+            //New
+            //Department dept = new Department();
+            //dept.Name = "Architecture";
+            //dept.Description = "Newly Added";
+            //context.Departments.Add(dept);
+            //context.SaveChanges();
+
+            //GetAll
+            //foreach (var item in context.Departments)
+            //{
+            //    Console.WriteLine("{0} {1} {2}", item.Id,item.Name, item.Description);
+            //}
+
+            //Search
+            //Department dept = context.Departments.Find(2);  
+            //Console.WriteLine("{0} {1} {2}", dept.Id, dept.Name, dept.Description);
+
+            //context.Departments.Remove(dept);
+            //context.SaveChanges();
+
+
+            //Department dept = context.Departments.Find(3);
+            //Console.WriteLine("{0} {1} {2}", dept.Id, dept.Name, dept.Description);
+
+            //dept.Description = "Bussiness Administration";
+            //context.SaveChanges();
+
+            //Console.WriteLine("{0} {1} {2}", dept.Id, dept.Name, dept.Description);
+
+
+            //GetAll
+            foreach (var item in context.Departments.Include("Students"))
+            {
+                Console.WriteLine("{0} {1} {2}", item.Id, item.Name, item.Description);
+                foreach (var std in item.Students)
+                {
+                    Console.WriteLine("\t{0} {1} {2}", std.Id, std.Name, std.Cgpa);
+                }
+            }
+
+            context.Database.ExecuteSqlCommand("UPDATE Departments SET Name='BBA' WHERE id=3");
+            //context.SaveChanges();
+        }
+    }
+}

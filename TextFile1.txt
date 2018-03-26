@@ -1,0 +1,6 @@
+﻿DateTime dt = new DateTime(2000, 2, 28);
+            DateTime today = DateTime.Now;
+            TimeSpan gap = (today - dt);
+            var years = gap.Days / 365;
+
+            System.Console.Write(years>=18);
